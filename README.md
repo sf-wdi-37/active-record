@@ -17,17 +17,17 @@ Market: SF
 <!-- specific/measurable goal for students to achieve -->
 *After this workshop, developers will be able to:*
 
-- Objective 1
-- Objective 2
-- Objective 3
+- Create a model that inherits from ActiveRecord class
+- CRUD data in the database using our model
+- Write a migration to define a database schema
+- Update our database schema with another migration
 
 ### Where should we be now?
 <!-- call out the skills that are prerequisites -->
 *Before this workshop, developers should already be able to:*
 
-- Skill 1
-- Skill 2
-- Skill 3
+- describe and build models in a JavaScript application using Mongoose.
+- Explain the model, view, controller pattern. 
 
 <img src="https://media.giphy.com/media/vjmSleUsnXU8o/giphy.gif" width="400" title="The files are in the computer!" alt="Zoolander Screenshot">
 
