@@ -23,8 +23,8 @@ In that way, it's a lot like the models we're used to from our work with Mongoos
 
 - Create a model that inherits from ActiveRecord class
 - CRUD data in the database using our model
-- Write a migration to define a database schema
-- Update our database schema with another migration
+- Generate a migration to define a database schema
+- use our model to interact with data in the Rails console
 
 ### Where should we be now?
 <!-- call out the skills that are prerequisites -->
