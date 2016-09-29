@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First:</strong>
+  <%= @speaker.first %>
+</p>
+
+<p>
+  <strong>Last:</strong>
+  <%= @speaker.last %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @speaker.email %>
+</p>
+
+<%= link_to 'Edit', edit_speaker_path(@speaker) %> |
+<%= link_to 'Back', speakers_path %>

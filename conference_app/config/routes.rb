@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  #METHOD  PATH                CONTROLLER#ACTION   PATH_HELPER (ALIAS)
+  get     'speakers'          => 'speakers#index',   as: :speakers
+  post    'speakers'          => 'speakers#create'
+  get     'speakers/new'      => 'speakers#new',     as: :new_speaker
+  get     'speakers/:id'      => 'speakers#show',    as: :speaker
+  get     'speakers/:id/edit' => 'speakers#edit',    as: :edit_speaker
+  put     'speakers/:id'      => 'speakers#update'
+  delete  'speakers/:id'      => 'speakers#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
