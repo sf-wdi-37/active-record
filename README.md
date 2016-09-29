@@ -11,7 +11,11 @@ Market: SF
 <!-- framing the "why" in big-picture/real world examples -->
 *This workshop is important because:*
 
-We're going to want to interact with the database and ActiveRecord is the machine that manages the Object Relational Mapping system for rails. That means it manages the schemas, models, and the shape of the (relational) database so that we can do all of the CRUD functionality we're used to!
+We're going to want to interact with the database and ActiveRecord is the machine that manages the Object Relational Mapping system for rails. That means it manages the schemas, models, and the shape of the (relational) database so that we can do all of the CRUD functionality we're used to! As described in the ActiveRecord Basics rails guide:  
+
+> In Active Record, objects carry both persistent data and behavior which operates on that data.
+
+In that way, it's a lot like the models we're used to from our work with Mongoose in the JS stack.
 
 ### What are the objectives?
 <!-- specific/measurable goal for students to achieve -->
@@ -138,11 +142,14 @@ Lab Goals:
 
 
 1. **Create your first Speaker record!**
+
+  Unlike our previous DB experiences, with Rails, you can interact with the database easily using the Rails console! We can seed data entry-by-entry if we'd like! Let's do that and create a speaker:
+
   ``` ruby
   # reminder: create = new + save
-  Speaker.create({first: "Leroy", last: "Brown"})
+  Speaker.create({first: "Leroy", last: "Brown", email: "lbrown@example.com"})
   Speaker.count
-  Speaker.all  
+  Speaker.all
   ```
 
   > **Pro-Tip**: Remember, when you're working in the console/repl `up-arrow` is your friend!
@@ -154,17 +161,20 @@ Lab Goals:
 
 **Create and query Speaker records in the Rails console.**
 
-Here's some data to play with:
-```ruby
-speakers_data = [
-    {:first=>"Cory", :last=>"Fauver", :email=>"cory@example.com"},
-    {:first=>"Brianna", :last=>"Veenstra", :email=>"brianna@example.com"},
-    {:first=>"Matt", :last=>"Laguardia", :email=>"matt@example.com"},
-    {:first=>"Ilias", :last=>"Tsangaris", :email=>"ilias@example.com"}
-]
-```
+Because we can interact with our data directly through the Rails console, we should practice some of the manipulation that we can do. Here's some data to play with:
+
 
 * Create 3 new speakers in the Rails Console.
+
+* Create 4 speakers at once by passing the following array to the create method:
+  ```ruby
+  speakers_data = [
+      {:first=>"Cory", :last=>"Fauver", :email=>"cory@example.com"},
+      {:first=>"Brianna", :last=>"Veenstra", :email=>"brianna@example.com"},
+      {:first=>"Matt", :last=>"Laguardia", :email=>"matt@example.com"},
+      {:first=>"Ilias", :last=>"Tsangaris", :email=>"ilias@example.com"}
+  ]
+  ```
 
 * Delete the last speaker you created.
 
@@ -184,7 +194,7 @@ speakers_data = [
 
 **Resources**:
 
-Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 methods that active record provides for us to interact with this resource! That's quite a model! [Here's a description of some of them](http://guides.rubyonrails.org/active_record_querying.html). Below are some useful ones:
+Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 methods that ActiveRecord provides for us to interact with this resource! That's quite a model! [Here's a description of some of them](http://guides.rubyonrails.org/active_record_querying.html). Below are some useful ones:
 
 * ActiveRecord partial method list:
 
@@ -200,20 +210,20 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
 
 ## Seeding Data
 
-1. **Take a look at `db/seed.rb`.**
+1. **Take a look at `db/seeds.rb`.**
 
   Add the following line:
   ```ruby
-  p "Hello from seed.rb"
+  p "Hello from seeds.rb"
   ```
 
-  Now run the following from your command line (not the console!):
+  Now run the following from your command line (not the rails console!):
   ```bash
   rake db:seed
-  # Hello from seed.rb
+  # Hello from seeds.rb
   ```
 
-  One interesting thing about your `seed.rb` file is that Rails has set it up to _already_ know about all of the models and gems in your application environment. Just tell it what data to create!
+  One interesting thing about your `seeds.rb` file is that Rails has set it up to _already_ know about all of the models and gems in your application environment. Just tell it what data to create!
 
 1. **Seed your database with speakers.**
 
@@ -233,7 +243,7 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
 
 1. **Update your seed file to use FFaker data.**
 
-  Take a look at the FFaker documentation linked above. Use ``FFaker`` to generate names and email addresses for 10 speakers, and add them to your database.
+  Take a look at the FFaker documentation linked above. Use ``FFaker`` to generate names and email addresses for 10 speakers, and add them to your database. You'll need to use [FFaker::Name](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md#ffakername) to create first and last names and  [FFaker::Internet.email](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md#ffakerinternet) to create email addresses.
 
   > Check out ffaker's [REFERENCE.md](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md) for a comprehensive list of the kind of data available.
 
