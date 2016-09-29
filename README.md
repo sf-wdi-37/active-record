@@ -11,7 +11,7 @@ Market: SF
 <!-- framing the "why" in big-picture/real world examples -->
 *This workshop is important because:*
 
-...
+We're going to want to interact with the database and ActiveRecord is the machine that manages the Object Relational Mapping system for rails. That means it manages the schemas, models, and the shape of the (relational) database so that we can do all of the CRUD functionality we're used to!
 
 ### What are the objectives?
 <!-- specific/measurable goal for students to achieve -->
@@ -27,7 +27,7 @@ Market: SF
 *Before this workshop, developers should already be able to:*
 
 - describe and build models in a JavaScript application using Mongoose.
-- Explain the model, view, controller pattern. 
+- Explain the model, view, controller pattern.
 
 <img src="https://media.giphy.com/media/vjmSleUsnXU8o/giphy.gif" width="400" title="The files are in the computer!" alt="Zoolander Screenshot">
 
@@ -65,6 +65,8 @@ Lab Goals:
 
   Stop and commit!
   ``` bash
+  git init
+  git status
   git add . -A # add everything
   git commit -m "inital commit, rails application boilerplate"
   ```
@@ -75,7 +77,7 @@ Lab Goals:
 
   ``` bash
   rails generate model speaker first:string last:string email:string
-  git diff # show the files you just created!
+  git status # show the files you just created!
   ```
 
   > `rails g` is shorthand for `rails generate`
@@ -84,19 +86,20 @@ Lab Goals:
   * `app/models/speaker.rb`
   * `db/migrate/1234566789_create_speakers.rb`
 
-  And take another look at your updated `db/schema.rb`!
-
-
-  Stop and commit. Then run `git diff` to see what changed.
+  Stop and commit.
 
 1. **Set up the database.**
   Next, create your application database:
   ```bash
   rake db:create # create a new database on your machine
   rake db:migrate # instruct your database to read and execute migration files
+  git status # show the files you just created/edited!
   ```
 
   > You may see errors if postgresql isn't configured/linked correctly on your machine. Flag down an instructor for help. As a last resort, download and then launch Postgres.app. You will see an elephant in your menu if it's running.
+
+  And take another look at your updated `db/schema.rb`!
+
 
   <details><summary>What is Rake?</summary>
     Rake is Ruby Make, a standalone Ruby utility that replaces the Unix utility `make`, and uses a `Rakefile` and `.rake` files to build up a list of tasks. In Rails, Rake is used for common administration tasks, especially sophisticated ones that build off of each other.
@@ -110,7 +113,7 @@ Lab Goals:
     Each task has a description, and should help you find the thing you need.
   </details>
 
-  Stop and commit! Then run `git diff` to see what changed.
+  Stop and commit!
 
 1. **Launch the Rails console.**
 
@@ -128,7 +131,7 @@ Lab Goals:
    #=> Speaker(id: integer, first: string, last:string, email:string, created_at: datetime, updated_at: datetime)
   ```
 
-  (You may need to "connect" to your database in the Rails console the first time you do this. Just follow the instructions Rails gives in the console.)
+  (You may need to "connect" to your database in the Rails console the first time you do this. Just follow the instructions Rails gives in the console. It will likely look like `call 'Speaker.connection' to establish a connection`)
 
   > Note that we never told our database to add fields for `id`, `created_at` and `updated_at`. These are added automatically, and we generally won't interact with them directly.
 
@@ -142,7 +145,7 @@ Lab Goals:
   Speaker.all  
   ```
 
-  > **Pro-Tip**: Remember, when you're working in the console/repl `up-arrow` is your friend! (That and "hanging a dot" + "double-tabbing").
+  > **Pro-Tip**: Remember, when you're working in the console/repl `up-arrow` is your friend!
 
 
 
@@ -181,7 +184,9 @@ speakers_data = [
 
 **Resources**:
 
-* ActiveRecord partial method list
+Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 methods that active record provides for us to interact with this resource! That's quite a model! [Here's a description of some of them](http://guides.rubyonrails.org/active_record_querying.html). Below are some useful ones:
+
+* ActiveRecord partial method list:
 
     * Class Methods: `all`,  `create`, `count`, `delete_all`, `destroy_all`, `find`, `first`, `last`, `order`, ...
 
