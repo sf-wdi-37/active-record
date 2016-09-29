@@ -312,7 +312,7 @@ A Rails model is just a class. We can create instance methods to add behaviors w
   In a real Rails app, an instance method might be used in the view.  However, it's a good idea to test it in the Rails console.
 
   ```ruby
-  > Speaker.first.speechify 2
+  > Speaker.first.speechify
       Speaker Load (0.6ms)  SELECT  "speakers".* FROM "speakers"  ORDER BY "speakers"."id" ASC LIMIT 1
     => "American apparel fab trust fund fixie farm-to-table. Blog mixtape retro +1 organic."
   ```
@@ -335,10 +335,10 @@ A Rails model is just a class. We can create instance methods to add behaviors w
 
   ```ruby
   talks_data = [
-      {:topic=>"A Fashion School for Ants?", :duration=>90, :start_time=>DateTime.now-(1.0/24)},
-      {:topic=>"Button-down Bliss", :duration=>45, :start_time=>Date.now+(23.0/24)},
-      {:topic=>"Ambi-turning", :duration=>30, :start_time=>Date.now+(2.0/24)},
-      {:topic=>"The Joy of Jumpsuits", :duration=>30, :start_time=>Date.now+(4.0/24)}
+      {:topic=>"A Fashion School for Ants?", :duration=>90, :start_time=>DateTime.new-(1.0/24)},
+      {:topic=>"Button-down Bliss", :duration=>45, :start_time=>Date.new+(23.0/24)},
+      {:topic=>"Ambi-turning", :duration=>30, :start_time=>Date.new+(2.0/24)},
+      {:topic=>"The Joy of Jumpsuits", :duration=>30, :start_time=>Date.new+(4.0/24)}
   ]
   ```
 
