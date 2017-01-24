@@ -233,7 +233,7 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
 
 1. **Delete old seed records when you seed.**
 
-  Add a line in your seed file to do `Speakers.delete_all` before the new speakers are created.
+  Add a line in your seed file to do `Speaker.delete_all` before the new speakers are created.
 
   Stop and commit!
 
@@ -267,6 +267,8 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
 1. **Test the validation in Rails console.**
 
   Back in your Rails console, try creating a speaker without an email address.  You should see `ROLLBACK` in the Rails console instead of `COMMIT`, meaning there was no change to your database.
+
+  > Note: You may need to restart your Rails console. The Rails console runs the code that was present when you ran `rails c`, so if you update your code, you want to restart the console.
 
   Let's use the Rails console to see what happened:
 
