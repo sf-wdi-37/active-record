@@ -77,7 +77,7 @@ Lab Goals:
 
   Take a moment to look around at your new app's file structure.
 
-1. **Generate a `Speaker` model.**
+2. **Generate a `Speaker` model.**
 
   ``` bash
   rails generate model speaker first:string last:string email:string
@@ -92,7 +92,7 @@ Lab Goals:
 
   Stop and commit.
 
-1. **Set up the database.**
+3. **Set up the database.**
   Next, create your application database:
   ```bash
   rake db:create # create a new database on your machine
@@ -119,7 +119,7 @@ Lab Goals:
 
   Stop and commit!
 
-1. **Launch the Rails console.**
+4. **Launch the Rails console.**
 
   The Rails console is a Ruby REPL (like `pry` or `irb`) that comes with Rails and knows about your Rails app.
 
@@ -129,7 +129,7 @@ Lab Goals:
   rails c
   ```
 
-1. **Confirm that your model exists.**  
+5. **Confirm that your model exists.**  
   ```ruby
   Speaker
    #=> Speaker(id: integer, first: string, last:string, email:string, created_at: datetime, updated_at: datetime)
@@ -141,7 +141,7 @@ Lab Goals:
 
 
 
-1. **Create your first Speaker record!**
+6. **Create your first Speaker record!**
 
   Unlike our previous DB experiences, with Rails, you can interact with the database easily using the Rails console! We can seed data entry-by-entry if we'd like! Let's do that and create a speaker:
 
@@ -225,23 +225,23 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
 
   One interesting thing about your `seeds.rb` file is that Rails has set it up to _already_ know about all of the models and gems in your application environment. Just tell it what data to create!
 
-1. **Seed your database with speakers.**
+2. **Seed your database with speakers.**
 
   Create an array of speaker data, with at least three speakers.  Use `Speaker.create` on the array to create all the speakers at once!
 
   Run `rake db:seed` again, and then check all your speakers from inside the Rails console.
 
-1. **Delete old seed records when you seed.**
+3. **Delete old seed records when you seed.**
 
   Add a line in your seed file to do `Speaker.delete_all` before the new speakers are created.
 
   Stop and commit!
 
-1. **Include the [FFaker](https://github.com/ffaker/ffaker) gem in your project.**
+4. **Include the [FFaker](https://github.com/ffaker/ffaker) gem in your project.**
 
   Add the `ffaker` gem to your Gemfile, and then `bundle`.
 
-1. **Update your seed file to use FFaker data.**
+5. **Update your seed file to use FFaker data.**
 
   Take a look at the FFaker documentation linked above. Use ``FFaker`` to generate names and email addresses for 10 speakers, and add them to your database. You'll need to use [FFaker::Name](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md#ffakername) to create first and last names and  [FFaker::Internet.email](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md#ffakerinternet) to create email addresses.
 
@@ -264,7 +264,7 @@ Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 meth
   end
   ```
 
-1. **Test the validation in Rails console.**
+2. **Test the validation in Rails console.**
 
   Back in your Rails console, try creating a speaker without an email address.  You should see `ROLLBACK` in the Rails console instead of `COMMIT`, meaning there was no change to your database.
 
@@ -309,7 +309,7 @@ A Rails model is just a class. We can create instance methods to add behaviors w
   end
   ```
 
-1. **Use the instance method.**
+2. **Use the instance method.**
 
   In a real Rails app, an instance method might be used in the view.  However, it's a good idea to test it in the Rails console.
 
@@ -327,13 +327,12 @@ A Rails model is just a class. We can create instance methods to add behaviors w
 1. Generate a `Talk` model with attributes: `topic` (a string), `duration` (an integer), and `start_time` (a `datetime`).
 
 
-1. Run `rake db:migrate` to update your schema with this new model, then head over to the Rails console and create a `Talk` instance as a sanity check.
+2. Run `rake db:migrate` to update your schema with this new model, then head over to the Rails console and create a `Talk` instance as a sanity check.
 
 
-1. Add a validator to your `Talks` model to require that the `start_time` be present.  Also require that the length of the `topic` string be between 3 and 100 characters.
+3. Add a validator to your `Talks` model to require that the `start_time` be present.  Also require that the length of the `topic` string be between 3 and 100 characters.
 
-
-1. Add code to your seed file to create `Talk`s.  Here's some sample data you could use, or create some with FFaker:
+4. Add code to your seed file to create `Talk`s.  Here's some sample data you could use, or create some with FFaker:
 
   ```ruby
   talks_data = [
@@ -345,7 +344,7 @@ A Rails model is just a class. We can create instance methods to add behaviors w
   ```
 
 
-1. Using `after_initialize` [ActiveRecord Callback](http://guides.rubyonrails.org/active_record_callbacks.html) add default values for a talk's `duration` (e.g., 30) and `topic` (e.g., "TBD").
+5. Using `after_initialize` [ActiveRecord Callback](http://guides.rubyonrails.org/active_record_callbacks.html) add default values for a talk's `duration` (e.g., 30) and `topic` (e.g., "TBD").
 
 
   <details><summary>hint</summary>
@@ -353,7 +352,7 @@ A Rails model is just a class. We can create instance methods to add behaviors w
   </details>
 
 
-1. Try a few complex queries:
+6. Try a few complex queries:
 
 * Select all talks with `start_times` in the future.
 
@@ -367,4 +366,4 @@ A Rails model is just a class. We can create instance methods to add behaviors w
 
 1. Add routes, controllers, and views for `Speaker` and `Talk` (more on this full process soon!).
 
-1. Create an association (relationship) between speakers and talks (we'll talk about how to do this soon!).
+2. Create an association (relationship) between speakers and talks (we'll talk about how to do this soon!).
