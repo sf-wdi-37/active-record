@@ -65,8 +65,8 @@ Lab Goals:
   cd conference_app
   ```
 
-  > We are using the `-T` (aka `--skip-test-unit`) and `-d postgresql` (aka `--database postgresql`) options today -- postgresl is our preferred database. We'll talk about tests another day.
-
+  > We are using the `-T` (aka `--skip-test-unit`) and `-d postgresql` (aka `--database postgresql`) options today -- postgresl is our preferred database.
+  
   Stop and commit!
   ``` bash
   git init
@@ -158,10 +158,23 @@ Lab Goals:
 
 ## Record Creation and Query Challenges
 
+Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 methods that ActiveRecord provides for us to interact with this resource! That's quite a model! [Here's a description of some of them](http://guides.rubyonrails.org/active_record_querying.html). Below are some useful ones:
+
+* ActiveRecord partial method list:
+
+    * Class Methods: `all`,  `create`, `count`, `delete_all`, `destroy_all`, `find`, `first`, `last`, `order`, ...
+
+    * Instance Methods:  `delete`, `destroy`,  `save`, `update`, `update_attributes`, ...
+
+* [Active Record Basics Rails Guide](http://guides.rubyonrails.org/active_record_basics.html)
+
+* [Active Record Query Interface Rails Guide](http://guides.rubyonrails.org/active_record_querying.html)
+
+* http://api.rubyonrails.org/classes/ActiveRecord/Base.html
 
 **Create and query Speaker records in the Rails console.**
 
-Because we can interact with our data directly through the Rails console, we should practice some of the manipulation that we can do. Here's some data to play with:
+Because we can interact with our data directly through the Rails console, we should practice some of the manipulation that we can do. Here are some challenges to get you working with data:
 
 
 * Create 3 new speakers in the Rails Console.
@@ -192,21 +205,6 @@ Because we can interact with our data directly through the Rails console, we sho
 
 * Delete all the speakers you created.
 
-**Resources**:
-
-Try typing `Speaker.` and then hitting tab twice. Notice that there are 636 methods that ActiveRecord provides for us to interact with this resource! That's quite a model! [Here's a description of some of them](http://guides.rubyonrails.org/active_record_querying.html). Below are some useful ones:
-
-* ActiveRecord partial method list:
-
-    * Class Methods: `all`,  `create`, `count`, `delete_all`, `destroy_all`, `find`, `first`, `last`, `order`, ...
-
-    * Instance Methods:  `delete`, `destroy`,  `save`, `update`, `update_attributes`, ...
-
-* [Active Record Basics Rails Guide](http://guides.rubyonrails.org/active_record_basics.html)
-
-* [Active Record Query Interface Rails Guide](http://guides.rubyonrails.org/active_record_querying.html)
-
-* http://api.rubyonrails.org/classes/ActiveRecord/Base.html
 
 ## Seeding Data
 
